@@ -62,5 +62,6 @@ function handle(argv, conn, path, cb) {
 }
 
 module.exports = {
-  init: migration
+  init: migration,
+  handle,
 }
