@@ -62,11 +62,13 @@ function handle(argv, conn, path, cb) {
 }
 
 function migrationUp(conn, path, cb) {
-      count = 999999;
-      coreFunctions.up_migrations(conn, count, path, function () {
-        conn.end();
-        cb();
-      });
+  if (cb == null)
+    cb = () => { };
+  count = 999999;
+  coreFunctions.up_migrations(conn, count, path, function () {
+    conn.end();
+    cb();
+  });
 }
 
 module.exports = {
