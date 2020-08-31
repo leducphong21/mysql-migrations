@@ -12,6 +12,8 @@ function run_query(conn, query, cb) {
       if (error) {
         throw error;
       }
+      console.log(query);
+      console.log(results);
       cb(results);
     });
   });
